@@ -5,7 +5,7 @@ int main()
 	
 	printf("컴퓨터가 생각한 숫자를 맞추어 보세요! \n");
 	
-	for(;;)
+	for(;;) //;;은 for문에서 무한반복
 	{
 		scanf("%d", &usranswer);
 		if(usranswer == 3)
