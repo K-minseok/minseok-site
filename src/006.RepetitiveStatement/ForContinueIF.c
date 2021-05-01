@@ -9,8 +9,16 @@ int main()
 		{
 			continue;
 		}
-		
-		printf("%d ", i);
+			
+		if(i % 10 == 1)
+		{
+			printf("\n");
+		}
+	   		printf("%2d ", i);
+	}
+		if(i % 9 == 0)
+	{
+    	printf("\n");
 	}
 	printf("\n");
 	
