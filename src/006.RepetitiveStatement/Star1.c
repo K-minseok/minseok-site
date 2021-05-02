@@ -19,3 +19,4 @@ int main()
 	}
 	return 0;
 }
+//별 뒤집기 while문으로 변경 해보기
