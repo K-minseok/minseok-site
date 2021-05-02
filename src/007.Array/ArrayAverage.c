@@ -1,12 +1,12 @@
 #include <stdio.h>
 int main()
 {
-	int arr[a];
-	int i, ave = 0;
 	int a;
-	
 	printf("학생들은 총 몇 명입니까? ");
 	scanf("%d", &a);
+	int arr[a];
+	int i, ave = 0;
+		
 	for(i=0; i<5; i++)
 	{
 		printf("%d번째 학생의 성적은? ", i+1);
