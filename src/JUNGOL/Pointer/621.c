@@ -1,9 +1,8 @@
 #include <stdio.h>
 int main(){
 	int i, j;
-	int *p;
-	int *o;
-	
+	int *p, *o; // int* p, o는 p만 포인터가 된다
+		
 	printf("정수를 두개 입력해주세요 : ");
 	scanf("%d %d", &i, &j);
 	
