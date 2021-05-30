@@ -2,6 +2,8 @@
 int add_book(char (*book_name)[30], char (*auth_name)[30], char (*publ_name)[30], int *borrowed, int *num_total_book);
 int compare(char *str1, char *str2);
 int search_book(char (*book_name)[30], char (*auth_name)[30], char (*publ_name)[30], int num_total_book);
+int borrow_book(int *borrowed);
+int return_book(int *borrowed);
 
 int main() {
 	int user_choice; //사용자가 선택한 메뉴 번호
@@ -30,10 +32,10 @@ int main() {
 			search_book(book_name, auth_name, publ_name, num_total_book); //책을 검색하기
 		} 
 		else if (user_choice == 3) {
-		//책을 빌리기
+			borrow_book(borrowed); //책을 빌리기
 		} 
 		else if (user_choice == 4) {
-		//책을 반납하기
+			return_book(borrowed); //책을 반납하기
 		}
 		else if (user_choice == 5) {
 			break; //프로그램 종료
@@ -73,13 +75,17 @@ int search_book(char (*book_name)[30], char (*auth_name)[30], char (*publ_name)[
 	printf("1. 책 제목 검색 \n"); //1. 책 제목 검색
 	printf("2. 지은이 검색 \n"); //2. 지은이 검색
 	printf("3. 출판사 검색 \n"); //3. 출판사 검색
+	printf("4. 모든 책 보기 \n"); //4. 모든 책 보기
 	printf("당신의 선택은 : "); //당신의 선택은 :
 	scanf("%d", &user_input);
 	
-	printf("검색할 단어를 입력하세요 : "); //검색할 단어를 입력해주세요 :
-	scanf("%s", user_search); //배열 이름은 & 쓸 필요없다
+	if(user_input !=4) {
+		printf("검색할 단어를 입력하세요 : "); //검색할 단어를 입력해주세요 :
+		scanf("%s", user_search); //배열 이름은 & 쓸 필요없다
+			
+	}
 	
-	printf("=====검색결과===== \n"); //검색결과
+		printf("=====검색결과===== \n"); //검색결과
 	
 	if(user_input == 1) {
 		//입력한 책 제목과 일치하는 배열(book_name)의 정보를 출력
@@ -109,6 +115,11 @@ int search_book(char (*book_name)[30], char (*auth_name)[30], char (*publ_name)[
 			}
 		}
 	}
+	else if(user_input == 4) {
+		for(i = 0; i < num_total_book; i++) {
+			printf("번호 : %d || 책 이름 : %s || 지은이 : %s || 출판사 : %s \n", i, book_name[i], auth_name[i], publ_name[i]);
+		}
+	}
 	
 	return 0;
 }
@@ -129,4 +140,42 @@ int compare(char *str1, char *str2) {
     }
     
     return 0;
+}
+
+//책을 빌리는 함수
+int borrow_book(int *borrowed) {
+	int book_num; //사용자로부터 책 번호를 받을 함수
+	
+	printf("빌릴 책의 번호를 입력해주세요 \n");
+	printf("책 번호 : ");
+	scanf("%d", &book_num);
+	
+	if(borrowed[book_num] == 1) {
+		printf("이미 대출된 책입니다.");
+	}
+	else {
+		printf("책이 성공적으로 대출되었습니다. \n");
+		borrowed[book_num] = 1;
+	}
+	 
+	return 0;
+}
+
+//책을 반납하는 삼수
+int return_book(int *borrowed) {
+	int book_num; //사용자로부터 책 번호를 받을 함수
+	
+	printf("반납할 책의 번호를 입력해주세요 \n");
+	printf("책 번호 : ");
+	scanf("%d", &book_num);
+	
+	if(borrowed[book_num] == 0) {
+		printf("이미 반납된 책입니다. \n");
+	}
+	else {
+		printf("책이 성공적으로 반납되었습니다. \n");
+		borrowed[book_num] = 0;
+	}
+	
+	return 0;
 }
