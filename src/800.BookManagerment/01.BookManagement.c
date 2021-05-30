@@ -161,7 +161,7 @@ int borrow_book(int *borrowed) {
 	return 0;
 }
 
-//책을 반납하는 삼수
+//책을 반납하는 함수
 int return_book(int *borrowed) {
 	int book_num; //사용자로부터 책 번호를 받을 함수
 	
