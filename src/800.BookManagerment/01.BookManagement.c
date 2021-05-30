@@ -41,8 +41,6 @@ int main() {
 	
 	}
 	
-	
-	
 	return 0;
 }
 
@@ -111,7 +109,6 @@ int search_book(char (*book_name)[30], char (*auth_name)[30], char (*publ_name)[
 			}
 		}
 	}
-	
 	
 	return 0;
 }
