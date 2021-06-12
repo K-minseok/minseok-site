@@ -1,4 +1,5 @@
-./	#include <stdio.h>
+#include <stdio.h>
+#include "str.h"
 char compare(char *str1, char *str2);
 int main() {
 	char str1[20];
